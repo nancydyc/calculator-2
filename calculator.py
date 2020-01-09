@@ -12,6 +12,8 @@ def get_user_input():
 
     return user_input
 
+
+
 def user_quit(user_input):
 
     if user_input[0] == "q":
@@ -28,12 +30,46 @@ def split_user_input(user_input):
 
     return input_string
 
-# def choose_maths(user_input):
 
+def error_handle(user_input):
 
-#     operator_list = ["+", "-", "*", "square", "cube", "pow", "mod", "**", "/", "%"]
-#     if user_input[0] in operator_list:
+    while True:         
 
+        if error_input(user_input): #first fix here
+
+            break
+
+        user_input = incorrect_command(user_input)
+
+        if user_input == None:
+
+            break
+
+def check_digits(user_input):
+
+    for index in range(1,len(user_input)):
+
+        if user_input[index].isdigit() is False:
+
+            print("Enter 2 digits and 1 operator only.")
+
+            return 
+        
+    return user_input
+
+def incorrect_command(user_input):
+
+    operator_list = ["+", "-", "*", "square", "cube", "pow", "mod", "**", "/", "%", "q"]
+
+    if user_input[0] not in operator_list:
+
+        print("Enter an operator in the beginning of your equation.")
+
+        return 
+
+    else:
+
+        return user_input
 
 
 def convert_to_int(input_string):
@@ -102,6 +138,12 @@ def calculator():
         user_input = get_user_input()
 
         user_input = split_user_input(user_input)
+
+        user_input = check_digits(user_input)
+
+        if user_input == None:
+            continue
+
 
         if_quit = user_quit(user_input)
 
