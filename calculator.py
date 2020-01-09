@@ -19,7 +19,7 @@ def user_quit(user_input):
         return None
 
     else:
-        
+
         return user_input
 
 def split_user_input(user_input):
@@ -64,6 +64,36 @@ def calculator_repl(num_list):
         # add(input_string[1][0], input_string[1][1])
 
         return add(num_list[1], num_list[2])
+
+    elif num_list[0] == "-":
+
+        return subtract(num_list[1], num_list[2])
+
+
+    elif num_list[0] == "*":
+
+        return multiply(num_list[1], num_list[2])
+
+    elif num_list[0] == "/":
+
+        return divide(num_list[1], num_list[2])
+
+    elif num_list[0] == "**" or num_list[0] == "square":
+
+        return square(num_list[1])
+
+    elif num_list[0] == "**" or num_list[0] == "cube":
+
+        return cube(num_list[1])
+
+    elif num_list[0] == "**" or num_list[0] == "pow":
+
+        return power(num_list[1], num_list[2])
+
+    elif num_list[0] == "%" or num_list[0] == "mod":
+
+        return mod(num_list[1], num_list[2])
+
 
 def calculator():
 
