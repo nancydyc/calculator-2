@@ -25,12 +25,29 @@ def split_user_input(user_input):
 
     return input_string
 
-def convert_to_int(input_string):
-    for i in input_string:
-        i = int(i)
-        print(input_string)
+# def choose_maths(user_input):
 
-        return input_string
+
+#     operator_list = ["+", "-", "*", "square", "cube", "pow", "mod", "**", "/", "%"]
+#     if user_input[0] in operator_list:
+
+
+
+def convert_to_int(input_string):
+
+    operator_list = ["+", "-", "*", "square", "cube", "pow", "mod", "**", "/", "%"]
+
+    num_list = []
+
+    for i in input_string:
+
+        if i not in  operator_list:
+
+            i = int(i)
+            num_list.append(i)
+
+        return input_string[0], num_list
+
 
 def calculator_repl(input_string):
 
@@ -38,7 +55,7 @@ def calculator_repl(input_string):
 
     if input_string[0] == "+":
 
-        add(int(input_string[1], input_string[2]))
+        add(input_string[1][0], input_string[1][1])
 
 
 def calculator():
